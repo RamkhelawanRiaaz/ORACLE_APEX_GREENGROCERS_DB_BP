@@ -1,0 +1,14 @@
+create table GCS_privileges (
+    gcs_pve_pk int not null auto_increment primary key, -- pve_id
+    gcs_pve_uk1 varchar(50), -- pve_name
+    gcs_pve_uk2 int, -- pve_apex_page
+    gcs_pve_uk3 varchar(50), -- pve_apex_component_name
+    constraint UC_GCS_privileges unique (gcs_pve_uk1, gcs_pve_uk2, gcs_pve_uk3),
+    pve_read varchar(40),
+    pve_write varchar(40),
+    pve_created_date date,  
+    pve_created_by varchar(40),
+    pve_modified_date date,
+    pve_modified_by varchar(40) 
+    
+);
