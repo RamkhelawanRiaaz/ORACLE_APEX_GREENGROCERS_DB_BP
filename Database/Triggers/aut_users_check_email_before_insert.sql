@@ -1,0 +1,8 @@
+CREATE OR REPLACE TRIGGER aut_users_check_email_before_insert
+BEFORE INSERT OR UPDATE ON AUT_USERS
+FOR EACH ROW
+BEGIN
+  IF :NEW.USR_EMAIL IS NOT NULL AND NOT LOWER(:NEW.USR_EMAIL) LIKE '%@gmail.com' THEN
+    RAISE_APPLICATION_ERROR(-20003, 'Email address must end with @gmail.com.');
+  END IF;
+END;
