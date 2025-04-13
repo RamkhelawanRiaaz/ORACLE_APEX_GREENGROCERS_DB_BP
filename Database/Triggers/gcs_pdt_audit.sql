@@ -10,12 +10,12 @@ DECLARE
 BEGIN 
 
     IF DELETING OR UPDATING THEN 
-        v_old_values := 'Id = ' || :OLD.pdt_id ||chr(10)|| 'name = ' || :OLD.pdt_name; 
+        v_old_values := 'Id = ' || :OLD.pdt_id ||chr(10)|| ', name = ' || :OLD.pdt_name ||chr(10)|| ', old stock = ' || :OLD.pdt_voorraad ||chr(10)|| ', old price = ' || :OLD.pdt_price; 
     END IF; 
  
 
     IF INSERTING OR UPDATING THEN 
-        v_new_values := 'Id = ' || :NEW.pdt_id ||chr(10)|| 'name = ' || :NEW.pdt_name; 
+        v_new_values := 'Id = ' || :NEW.pdt_id ||chr(10)|| ', name = ' || :NEW.pdt_name||chr(10)|| ', New Stock = ' || :NEW.pdt_voorraad ||chr(10)|| ', New price = ' || :New.pdt_price; 
     END IF; 
  
     v_operation := CASE  
